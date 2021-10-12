@@ -1,0 +1,14 @@
+<div class="container">
+    <input type="text" id="nombre" (keyup.enter)="agregarLista(item.value)" #item>
+    <input type="button" value="Agregar" (click)="agregarLista(item.value)">
+    <div *ngIf="animes.length!=0; else vacio">
+        <input type="button" value="Generar Lista" class="button generar" (click)="generarLista()">
+        <div *ngFor="let anime of animes" class="item">
+            <p><b>{{ anime | uppercase}}</b></p>
+            <input type="button" value="Eliminar" class="button delete" (click)="deleteItem(anime)">
+        </div>
+    </div>
+    <ng-template #vacio>
+        Agrega anime/manga a la lista
+    </ng-template>
+</div>
